@@ -48,7 +48,7 @@ export class AuthService {
   }
 
   authorization({ email }: User) {
-    this.db.list('/authenticated-user', ref => ref.orderByChild('email').equalTo(email)).valueChanges()
+    this.db.list('/authenticated-users', ref => ref.orderByChild('email').equalTo(email)).valueChanges()
       .subscribe(v => {
         if (v.length) {
           this.router.navigate(['/']);

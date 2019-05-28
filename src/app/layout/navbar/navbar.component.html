@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+    <span>GROCERY</span>
+
+    <span class="example-fill-remaining-space"></span>
+
+    <button mat-button [matMenuTriggerFor]="menu">
+        <img mat-card-avatar src={{user?.photoURL}}>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item>Item 1</button>
+        <button mat-menu-item (click)="authService.googleSignOut()">
+            <mat-icon>save_alt</mat-icon>
+            <span>Sign Out</span>
+        </button>
+    </mat-menu>
+</mat-toolbar>
+
+<mat-card></mat-card>
