@@ -1,0 +1,39 @@
+<mat-card>
+    <mat-card-title>
+        Employee
+        <span class="float-right">
+            <button mat-flat-button color="primary" (click)="createEmployee()">
+                <mat-icon>save</mat-icon>
+                <span>Save</span>
+            </button>
+        </span>
+    </mat-card-title>
+    <hr />
+
+    <div class="example-container">
+        <mat-form-field>
+            <input matInput placeholder="Name" [(ngModel)]="employee.name">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Email" [(ngModel)]="employee.email">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Gender" [(ngModel)]="employee.gender">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Phone number" [(ngModel)]="employee.phoneNumber">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Designation" [(ngModel)]="employee.designation">
+        </mat-form-field>
+
+        <mat-form-field>
+            <textarea matInput placeholder="Address" [(ngModel)]="employee.address"></textarea>
+        </mat-form-field>
+    </div>
+
+</mat-card>
