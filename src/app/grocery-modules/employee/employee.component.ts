@@ -10,8 +10,7 @@ import { ConfirmationDialogComponent } from '../../shared/components/confirmatio
 
 @Component({
   selector: 'employee',
-  templateUrl: './employee.component.html',
-  styleUrls: ['./employee.component.scss']
+  templateUrl: './employee.component.html'
 })
 export class EmployeeComponent extends BaseComponent implements OnInit {
 
@@ -40,11 +39,11 @@ export class EmployeeComponent extends BaseComponent implements OnInit {
   }
 
   editEmployee(employee: Employee) {
-    this.dialog.open(EmployeeFormDialogComponent, { width: '400px', data: employee });
+    this.dialog.open(EmployeeFormDialogComponent, { width: '600px', data: employee });
   }
 
   openDialog() {
-    this.dialog.open(EmployeeFormDialogComponent, { width: '400px', data: new Employee() });
+    this.dialog.open(EmployeeFormDialogComponent, { width: '600px', data: new Employee() });
   }
 
   openConfirmationDialog(employee: Employee) {

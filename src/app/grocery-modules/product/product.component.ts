@@ -10,8 +10,7 @@ import { ProductService } from '../../services/product/product.service';
 
 @Component({
   selector: 'product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.scss']
+  templateUrl: './product.component.html'
 })
 export class ProductComponent extends BaseComponent implements OnInit {
 
@@ -40,11 +39,11 @@ export class ProductComponent extends BaseComponent implements OnInit {
   }
 
   editProduct(product: Product) {
-    this.dialog.open(ProductFormDialogComponent, { width: '400px', data: product });
+    this.dialog.open(ProductFormDialogComponent, { width: '500px', data: product });
   }
 
   openDialog() {
-    this.dialog.open(ProductFormDialogComponent, { width: '400px', data: new Product() });
+    this.dialog.open(ProductFormDialogComponent, { width: '500px', data: new Product() });
   }
 
   openConfirmationDialog(product: Product) {

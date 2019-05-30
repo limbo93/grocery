@@ -1,19 +1,21 @@
 <h1 mat-dialog-title>{{title}} Employee</h1>
 <div mat-dialog-content>
-  <div class="example-container">
+  <div class="flex-column">
 
-    <div style="flex: 5" class="example-container">
-      <mat-form-field style="flex: 5">
-        <input matInput placeholder="Name" [(ngModel)]="data.name">
+    <div class="flex-5 flex-row">
+      <mat-form-field appearance="outline" class="flex-5 pr-5">
+        <mat-label>Name</mat-label>
+        <input matInput [(ngModel)]="data.name">
       </mat-form-field>
 
-      <mat-form-field style="flex: 5">
-        <input matInput placeholder="Email" [(ngModel)]="data.email">
+      <mat-form-field appearance="outline" class="flex-5">
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="data.email">
       </mat-form-field>
     </div>
 
-    <div style="flex: 5" class="example-container">
-      <mat-form-field style="flex: 5">
+    <div class="flex-5 flex-row">
+      <mat-form-field appearance="outline" class="flex-5 pr-5">
         <mat-label>Gender</mat-label>
         <mat-select [(ngModel)]="data.gender" name="gender">
           <mat-option *ngFor="let gender of genders" [value]="gender.value">
@@ -22,18 +24,24 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field style="flex: 5">
-        <input matInput placeholder="Phone number" [(ngModel)]="data.phoneNumber">
+      <mat-form-field appearance="outline" class="flex-5">
+        <mat-label>Phone number</mat-label>
+        <input matInput [(ngModel)]="data.phoneNumber">
       </mat-form-field>
     </div>
 
-    <mat-form-field>
-      <input matInput placeholder="Designation" [(ngModel)]="data.designation">
-    </mat-form-field>
+    <div class="flex-5 flex-row">
+      <mat-form-field appearance="outline" class="flex-5 pr-5">
+        <mat-label>Designation</mat-label>
+        <input matInput [(ngModel)]="data.designation">
+      </mat-form-field>
 
-    <mat-form-field>
-      <textarea matInput placeholder="Address" [(ngModel)]="data.address"></textarea>
-    </mat-form-field>
+      <mat-form-field appearance="outline" class="flex-5">
+        <mat-label>Address</mat-label>
+        <input matInput [(ngModel)]="data.address">
+      </mat-form-field>
+    </div>
+
   </div>
 </div>
 <div mat-dialog-actions class="float-right">

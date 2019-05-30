@@ -12,3 +12,32 @@ a{
     text-decoration: none;
     color: #fff;
 }
+
+// flex-start
+.flex-row{
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column{
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-5{
+  flex: 5;
+}
+
+.pr-5{
+  padding-right: 5px;
+}
+// flex-end
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}

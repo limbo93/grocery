@@ -6,8 +6,7 @@ import { NotificationService } from '../../../core/notification/notification.ser
 
 @Component({
     selector: 'product-form-dialog',
-    templateUrl: './product.form.dialog.html',
-    styleUrls: ['./product.form.dialog.scss']
+    templateUrl: './product.form.dialog.html'
 })
 export class ProductFormDialogComponent {
 
