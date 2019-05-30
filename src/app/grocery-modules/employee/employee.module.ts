@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { EmployeeComponent } from './employee.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { EmployeeService } from '../../services/employee/employee.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
@@ -24,6 +25,7 @@ import { EmployeeFormDialogComponent } from './form-dialog/employee.form.dialog'
             ]
         ),
         FormsModule,
+        CommonModule,
         MatCardModule,
         MatFormFieldModule,
         MatCheckboxModule,
@@ -33,7 +35,7 @@ import { EmployeeFormDialogComponent } from './form-dialog/employee.form.dialog'
         MatInputModule,
         MatButtonModule,
         MatTableModule,
-        MatDialogModule
+        MatDialogModule,
     ],
     declarations: [
         EmployeeComponent,

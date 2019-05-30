@@ -7,11 +7,16 @@ import { NotificationService } from '../../../core/notification/notification.ser
 @Component({
     selector: 'employee-form-dialog',
     templateUrl: './employee.form.dialog.html',
-    styleUrls: ['./employee.form.dialog.html']
+    styleUrls: ['./employee.form.dialog.scss']
 })
 export class EmployeeFormDialogComponent {
 
     title: string = '';
+    genders = [
+        { label: 'Male', value: 'Male' },
+        { label: 'Female', value: 'Female' },
+        { label: 'Other', value: 'Other' }
+    ];
 
     constructor(
         public dialogRef: MatDialogRef<EmployeeFormDialogComponent>,

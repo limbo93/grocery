@@ -1,31 +1,41 @@
 <h1 mat-dialog-title>{{title}} Employee</h1>
 <div mat-dialog-content>
-  <!-- <div class="example-container"> -->
-  <mat-form-field>
-    <input matInput placeholder="Name" [(ngModel)]="data.name">
-  </mat-form-field>
+  <div class="example-container">
 
-  <mat-form-field>
-    <input matInput placeholder="Email" [(ngModel)]="data.email">
-  </mat-form-field>
+    <div style="flex: 5" class="example-container">
+      <mat-form-field style="flex: 5">
+        <input matInput placeholder="Name" [(ngModel)]="data.name">
+      </mat-form-field>
 
-  <mat-form-field>
-    <input matInput placeholder="Gender" [(ngModel)]="data.gender">
-  </mat-form-field>
+      <mat-form-field style="flex: 5">
+        <input matInput placeholder="Email" [(ngModel)]="data.email">
+      </mat-form-field>
+    </div>
 
-  <mat-form-field>
-    <input matInput placeholder="Phone number" [(ngModel)]="data.phoneNumber">
-  </mat-form-field>
+    <div style="flex: 5" class="example-container">
+      <mat-form-field style="flex: 5">
+        <mat-label>Gender</mat-label>
+        <mat-select [(ngModel)]="data.gender" name="gender">
+          <mat-option *ngFor="let gender of genders" [value]="gender.value">
+            {{gender.label}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
 
-  <mat-form-field>
-    <input matInput placeholder="Designation" [(ngModel)]="data.designation">
-  </mat-form-field>
+      <mat-form-field style="flex: 5">
+        <input matInput placeholder="Phone number" [(ngModel)]="data.phoneNumber">
+      </mat-form-field>
+    </div>
 
-  <mat-form-field>
-    <textarea matInput placeholder="Address" [(ngModel)]="data.address"></textarea>
-  </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Designation" [(ngModel)]="data.designation">
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput placeholder="Address" [(ngModel)]="data.address"></textarea>
+    </mat-form-field>
+  </div>
 </div>
-<!-- </div> -->
 <div mat-dialog-actions class="float-right">
   <button mat-raised-button (click)="close()">
     <mat-icon>close</mat-icon>

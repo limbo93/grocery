@@ -40,11 +40,11 @@ export class EmployeeComponent extends BaseComponent implements OnInit {
   }
 
   editEmployee(employee: Employee) {
-    this.dialog.open(EmployeeFormDialogComponent, { data: employee });
+    this.dialog.open(EmployeeFormDialogComponent, { width: '400px', data: employee });
   }
 
   openDialog() {
-    this.dialog.open(EmployeeFormDialogComponent, { data: new Employee() });
+    this.dialog.open(EmployeeFormDialogComponent, { width: '400px', data: new Employee() });
   }
 
   openConfirmationDialog(employee: Employee) {
