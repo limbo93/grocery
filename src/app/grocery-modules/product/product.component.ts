@@ -29,7 +29,7 @@ export class ProductComponent extends BaseComponent implements OnInit {
   }
 
   fetchProducts() {
-    this.productService.fetchProducts().valueChanges().subscribe(response => {
+    this.subscribers.fetchProductsSub = this.productService.fetchProducts().valueChanges().subscribe(response => {
       this.products = new MatTableDataSource(response);
     });
   }

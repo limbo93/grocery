@@ -29,7 +29,7 @@ export class EmployeeComponent extends BaseComponent implements OnInit {
   }
 
   fetchEmployees() {
-    this.employeeService.fetchEmployees().valueChanges().subscribe(response => {
+    this.subscribers.fetchEmployeesSub = this.employeeService.fetchEmployees().valueChanges().subscribe(response => {
       this.employees = new MatTableDataSource(response);
     });
   }
