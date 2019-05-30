@@ -2,9 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Employee } from '../../services/employee/domain/employee.domain';
 import { BaseComponent } from '../../shared/components/base.component';
 import { EmployeeService } from '../../services/employee/employee.service';
-import { NotificationService } from '../../core/notification/notification.service';
 import { MatTableDataSource } from '@angular/material/table';
-import { Router, ActivatedRoute } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { EmployeeFormDialogComponent } from './form-dialog/employee.form.dialog';
+import { NotificationService } from '../../core/notification/notification.service';
+import { ConfirmationDialogComponent } from '../../shared/components/confirmation-dialog/confirmation.dialog.component';
 
 @Component({
   selector: 'employee',
@@ -14,11 +16,12 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class EmployeeComponent extends BaseComponent implements OnInit {
 
   employees: MatTableDataSource<{}>;
-  displayedColumns: string[] = ['name', 'email', 'phoneNumber', 'gender', 'edit'];
+  displayedColumns: string[] = ['name', 'email', 'phoneNumber', 'gender', 'edit', 'delete'];
 
 
   constructor(private employeeService: EmployeeService,
-    private router: Router, private route: ActivatedRoute) {
+    private notificationService: NotificationService,
+    public dialog: MatDialog) {
     super();
   }
 
@@ -37,7 +40,28 @@ export class EmployeeComponent extends BaseComponent implements OnInit {
   }
 
   editEmployee(employee: Employee) {
-    this.router.navigate(['form', employee.id], { relativeTo: this.route });
+    this.dialog.open(EmployeeFormDialogComponent, { data: employee });
   }
 
+  openDialog() {
+    this.dialog.open(EmployeeFormDialogComponent, { data: new Employee() });
+  }
+
+  openConfirmationDialog(employee: Employee) {
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      data: "Are you sure that you want to delete this data?"
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.deleteEmployee(employee);
+      }
+    });
+  }
+
+  deleteEmployee(employee: Employee) {
+    this.employeeService.deleteEmployee({ employeeId: employee.id })
+      .then(data => {
+        this.notificationService.sendSuccessMsg('Employee delete');
+      });
+  }
 }

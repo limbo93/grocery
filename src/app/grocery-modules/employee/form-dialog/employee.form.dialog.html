@@ -1,0 +1,39 @@
+<h1 mat-dialog-title>{{title}} Employee</h1>
+<div mat-dialog-content>
+  <!-- <div class="example-container"> -->
+  <mat-form-field>
+    <input matInput placeholder="Name" [(ngModel)]="data.name">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Email" [(ngModel)]="data.email">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Gender" [(ngModel)]="data.gender">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Phone number" [(ngModel)]="data.phoneNumber">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Designation" [(ngModel)]="data.designation">
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput placeholder="Address" [(ngModel)]="data.address"></textarea>
+  </mat-form-field>
+</div>
+<!-- </div> -->
+<div mat-dialog-actions class="float-right">
+  <button mat-raised-button (click)="close()">
+    <mat-icon>close</mat-icon>
+    <span>Close</span>
+  </button>
+
+  <button mat-raised-button (click)="save()">
+    <mat-icon>save</mat-icon>
+    <span>Save</span>
+  </button>
+</div>

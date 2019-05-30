@@ -12,15 +12,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
-import { EmployeeFormComponent } from './form/employee.form.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { EmployeeFormDialogComponent } from './form-dialog/employee.form.dialog';
 
 
 @NgModule({
     imports: [
         RouterModule.forChild(
             [
-                { path: '', component: EmployeeComponent },
-                { path: 'form/:employeeId', component: EmployeeFormComponent }
+                { path: '', component: EmployeeComponent }
             ]
         ),
         FormsModule,
@@ -32,13 +32,14 @@ import { EmployeeFormComponent } from './form/employee.form.component';
         MatIconModule,
         MatInputModule,
         MatButtonModule,
-        MatTableModule
+        MatTableModule,
+        MatDialogModule
     ],
     declarations: [
         EmployeeComponent,
-        EmployeeFormComponent
+        EmployeeFormDialogComponent
     ],
-    exports: [],
+    entryComponents: [EmployeeFormDialogComponent],
     providers: [EmployeeService]
 })
 export class EmployeeModule { }

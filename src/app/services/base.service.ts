@@ -1,13 +1,15 @@
-import * as firebase from 'firebase';
-
 export interface PathParameters {
     [parameterName: string]: any;
 }
 
 export class BaseService {
 
-    protected get timestamp() {
+    protected get timestamp(): number {
         return + new Date + Math.floor(Math.random() * 100) + 1;
+    }
+
+    protected get time(): string {
+        return new Date().toDateString();
     }
 
     protected create(url: string, parameters: PathParameters) {

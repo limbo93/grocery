@@ -33,6 +33,7 @@ export class EmployeeService extends BaseService {
     }
 
     public updateEmployee(employee: Employee, pathParams: PathParameters) {
+        employee.updatedAt = this.time;
         const url = this.create(UPDATE_EMPLOYEE, pathParams);
         return this.db.object(url).update(employee);
     }
