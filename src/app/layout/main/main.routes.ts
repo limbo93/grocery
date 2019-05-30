@@ -28,5 +28,14 @@ export const mainRoutes: Routes = [
             }
         ]
     },
-    
+    {
+        path: 'product',
+        component: MainComponent,
+        children: [
+            {
+                path: '',
+                loadChildren: '../../grocery-modules/product/product.module#ProductModule'
+            }
+        ]
+    },
 ]

@@ -1,0 +1,40 @@
+<h1 mat-dialog-title>{{title}} Product</h1>
+<div mat-dialog-content>
+  <div class="example-container">
+
+    <div style="flex: 5" class="example-container">
+      <mat-form-field style="flex: 5">
+        <input matInput placeholder="Name" [(ngModel)]="data.name">
+      </mat-form-field>
+
+      <mat-form-field style="flex: 5">
+        <input matInput placeholder="Description" [(ngModel)]="data.description">
+      </mat-form-field>
+    </div>
+
+    <div style="flex: 5" class="example-container">
+      <mat-form-field style="flex: 5">
+        <input matInput placeholder="Buying Price" [(ngModel)]="data.buyingPrice">
+      </mat-form-field>
+
+      <mat-form-field style="flex: 5">
+        <input matInput placeholder="Selling Price" [(ngModel)]="data.sellingPrice">
+      </mat-form-field>
+    </div>
+
+    <mat-form-field>
+      <input matInput placeholder="Quantity" [(ngModel)]="data.quantity">
+    </mat-form-field>
+  </div>
+</div>
+<div mat-dialog-actions class="float-right">
+  <button mat-raised-button (click)="close()">
+    <mat-icon>close</mat-icon>
+    <span>Close</span>
+  </button>
+
+  <button mat-raised-button (click)="save()">
+    <mat-icon>save</mat-icon>
+    <span>Save</span>
+  </button>
+</div>
