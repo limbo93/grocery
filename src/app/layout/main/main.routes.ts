@@ -38,4 +38,14 @@ export const mainRoutes: Routes = [
             }
         ]
     },
+    {
+        path: 'invoice',
+        component: MainComponent,
+        children: [
+            {
+                path: '',
+                loadChildren: '../../grocery-modules/invoice/invoice.module#InvoiceModule'
+            }
+        ]
+    },
 ]
