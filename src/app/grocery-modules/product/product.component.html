@@ -1,13 +1,14 @@
 <mat-card>
-    <button mat-stroked-button class="float-right" (click)="openDialog()">
+    <button mat-flat-button color="primary" class="float-right" (click)="openDialog()">
         <mat-icon>add</mat-icon>
         <span>Add</span>
     </button>
     <mat-card-title> Products </mat-card-title>
     <hr />
 
-    <mat-form-field>
-        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+    <mat-form-field appearance="outline">
+        <mat-label>Search</mat-label>
+        <input matInput (keyup)="applyFilter($event.target.value)">
     </mat-form-field>
 
     <table mat-table [dataSource]="products" class="mat-elevation-z8">
