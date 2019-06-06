@@ -4,15 +4,29 @@
 
     <div class="flex-5 flex-row">
       <mat-form-field appearance="outline" class="flex-5 pr-5">
-        <mat-label>Name</mat-label>
+        <mat-label>Product Name</mat-label>
         <input matInput [(ngModel)]="data.name">
         <mat-icon matSuffix>widgets</mat-icon>
       </mat-form-field>
 
       <mat-form-field appearance="outline" class="flex-5">
+        <mat-label>Product Code</mat-label>
+        <input matInput [(ngModel)]="data.code">
+        <mat-icon matSuffix>donut_small</mat-icon>
+      </mat-form-field>
+    </div>
+
+    <div class="flex-5 flex-row">
+      <mat-form-field appearance="outline" class="flex-5 pr-5">
         <mat-label>Quantity</mat-label>
         <input matInput [(ngModel)]="data.quantity">
         <mat-icon matSuffix>grain</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="flex-5">
+        <mat-label>Description</mat-label>
+        <input matInput [(ngModel)]="data.description">
+        <mat-icon matSuffix>description</mat-icon>
       </mat-form-field>
     </div>
 
@@ -29,15 +43,8 @@
         <mat-icon matSuffix>attach_money</mat-icon>
       </mat-form-field>
     </div>
-
-    <div class="flex-5 flex-row">
-      <mat-form-field appearance="outline" class="flex-5">
-        <mat-label>Description</mat-label>
-        <input matInput [(ngModel)]="data.description">
-        <mat-icon matSuffix>description</mat-icon>
-      </mat-form-field>
-    </div>
   </div>
+
 </div>
 <div mat-dialog-actions class="float-right">
   <button mat-raised-button (click)="close()">
