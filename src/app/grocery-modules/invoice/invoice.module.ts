@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { AmountInWordsService } from '../../services/amount-in-words/amount-in-words.service';
 
 @NgModule({
     imports: [
@@ -17,7 +18,10 @@ import { MatIconModule } from '@angular/material/icon';
         MatIconModule
     ],
     declarations: [
-        InvoiceComponent,
+        InvoiceComponent
+    ],
+    providers: [
+        AmountInWordsService
     ]
 })
 export class InvoiceModule { }
