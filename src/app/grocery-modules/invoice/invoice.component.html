@@ -1,9 +1,19 @@
 <mat-card>
-    <button mat-stroked-button class="float-right" (click)="save()">
-        <mat-icon>save</mat-icon>
-        <span>Save</span>
-    </button>
-    <mat-card-title>Invoice</mat-card-title>
+    <mat-card-title>
+        <div class="flex-row">
+            <div class="flex-5">
+                Invoice
+            </div>
+
+            <div class="flex-5">
+                <button mat-flat-button color="primary" class="float-right" (click)="save()">
+                    <mat-icon>print</mat-icon>
+                    <span>Save&Print</span>
+                </button>
+            </div>
+        </div>
+    </mat-card-title>
+    <hr />
 
     <table id="table">
         <tr>

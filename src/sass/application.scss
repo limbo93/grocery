@@ -1,0 +1,42 @@
+body{
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+    color: #fff;
+}
+
+hr{
+    opacity: 0.5;
+}
+
+table {
+    width: 100%;
+}
+  
+.float-right{
+    float: right;
+}
+
+.flex-row{
+    display: flex;
+    flex-direction: row;
+}
+  
+.flex-column{
+    display: flex;
+    flex-direction: column;
+}
+  
+.flex-5{
+    flex: 5;
+}
+  
+.pr-5{
+    padding-right: 5px;
+}
+  
+.text-bold{
+    font-weight: 800;
+}
