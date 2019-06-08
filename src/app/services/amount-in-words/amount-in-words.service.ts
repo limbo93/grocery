@@ -47,23 +47,19 @@ export class AmountInWordsService {
             cents = '0';
         }
 
-        let temp: string = '000000000000000' + dollars;
-        dollars = temp.slice(-15);
+        let temp: string = '000000000' + dollars;
+        dollars = temp.slice(-9);
 
-        let trillions = Number(dollars.substr(0, 3));
-        let billions = Number(dollars.substr(3, 3));
-        let millions = Number(dollars.substr(6, 3));
-        let thousands = Number(dollars.substr(9, 3));
-        let hundreds = Number(dollars.substr(12, 3));
+        let crores = Number(dollars.substr(0, 2));
+        let lakhs = Number(dollars.substr(2, 2));
+        let thousands = Number(dollars.substr(4, 2));
+        let hundreds = Number(dollars.substr(6, 1));
 
-        temp = this.words999(trillions);
-        const tW = temp.trim();  //trillions in words
+        temp = this.words999(crores);
+        const crW = temp.trim();  // Crores in words
 
-        temp = this.words999(billions);
-        const bW = temp.trim();   // Billions  in words
-
-        temp = this.words999(millions);
-        const mW = temp.trim();   // Millions  in words
+        temp = this.words999(lakhs);
+        const lW = temp.trim();   // Lakhs  in words
 
         temp = this.words999(thousands);
         const thW = temp.trim();   // Thousands in words
@@ -76,15 +72,14 @@ export class AmountInWordsService {
 
         let totAmt: string = '';
 
-        if (tW != '') totAmt += ((totAmt != '') ? ' ' : '') + tW + ' Trillion';
-        if (bW != '') totAmt += ((totAmt != '') ? ' ' : '') + bW + ' Billion';
-        if (mW != '') totAmt += ((totAmt != '') ? ' ' : '') + mW + ' Million';
+        if (crW != '') totAmt += ((totAmt != '') ? ' ' : '') + crW + ' Crore';
+        if (lW != '') totAmt += ((totAmt != '') ? ' ' : '') + lW + ' Lakh';
         if (thW != '') totAmt += ((totAmt != '') ? ' ' : '') + thW + ' Thousand';
         if (hW != '') totAmt += ((totAmt != '') ? ' ' : '') + hW;
 
         if (!shortCode) shortCode = "DEFAULT";
 
-        var currencyUnits = this.currencyMap.get(shortCode).split(":");
+        const currencyUnits = this.currencyMap.get(shortCode).split(":");
 
         if (totAmt != '') {
             totAmt = totAmt + ' ' + currencyUnits[0];
