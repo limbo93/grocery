@@ -4,7 +4,7 @@ import { AuthGuard } from './core/security/auth.guard';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path: '', loadChildren: './layout/main/main.module#MainModule', canActivate: [AuthGuard] },
+  { path: '', loadChildren: () => import('./layout/main/main.module').then(m => m.MainModule), canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent }
 ];
 

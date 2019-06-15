@@ -14,7 +14,7 @@ export const mainRoutes: Routes = [
         children: [
             {
                 path: '',
-                loadChildren: '../../grocery-modules/dashboard/dashboard.module#DashboardModule'
+                loadChildren: () => import('../../grocery-modules/dashboard/dashboard.module').then(m => m.DashboardModule)
             }
         ]
     },
@@ -24,7 +24,7 @@ export const mainRoutes: Routes = [
         children: [
             {
                 path: '',
-                loadChildren: '../../grocery-modules/employee/employee.module#EmployeeModule'
+                loadChildren: () => import('../../grocery-modules/employee/employee.module').then(m => m.EmployeeModule)
             }
         ]
     },
@@ -34,7 +34,7 @@ export const mainRoutes: Routes = [
         children: [
             {
                 path: '',
-                loadChildren: '../../grocery-modules/product/product.module#ProductModule'
+                loadChildren: () => import('../../grocery-modules/product/product.module').then(m => m.ProductModule)
             }
         ]
     },
@@ -44,7 +44,7 @@ export const mainRoutes: Routes = [
         children: [
             {
                 path: '',
-                loadChildren: '../../grocery-modules/invoice/invoice.module#InvoiceModule'
+                loadChildren: () => import('../../grocery-modules/invoice/invoice.module').then(m => m.InvoiceModule)
             }
         ]
     },
