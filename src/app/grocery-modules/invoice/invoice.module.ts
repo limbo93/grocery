@@ -5,6 +5,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { AmountInWordsService } from '../../services/amount-in-words/amount-in-words.service';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
     imports: [
@@ -15,7 +19,11 @@ import { AmountInWordsService } from '../../services/amount-in-words/amount-in-w
         ),
         MatCardModule,
         MatButtonModule,
-        MatIconModule
+        MatIconModule,
+        MatFormFieldModule,
+        MatInputModule,
+        CommonModule,
+        FormsModule,
     ],
     declarations: [
         InvoiceComponent

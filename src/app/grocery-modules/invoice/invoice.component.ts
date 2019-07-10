@@ -3,6 +3,7 @@ import * as jsPDF from 'jspdf'
 // import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import { AmountInWordsService } from '../../services/amount-in-words/amount-in-words.service';
+import { Invoice } from '../../services/invoice/domain/invoice.domain';
 
 @Component({
     selector: 'invoice',
@@ -23,8 +24,12 @@ export class InvoiceComponent implements OnInit {
         customerName: 'Ali Baba'
     }
 
-    constructor(private amountInWordsService: AmountInWordsService) {
+    invoices: Invoice[] = [];
 
+    constructor(private amountInWordsService: AmountInWordsService) {
+        this.invoices.push(new Invoice());
+        this.invoices.push(new Invoice());
+        this.invoices.push(new Invoice());
     }
 
     ngOnInit(): void {
@@ -72,5 +77,7 @@ export class InvoiceComponent implements OnInit {
         this.doc.save(pdfName);
     }
 
-
+    add(){
+        this.invoices.push(new Invoice());
+    }
 }
