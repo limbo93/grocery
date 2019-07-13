@@ -43,6 +43,19 @@
         <mat-icon matSuffix>attach_money</mat-icon>
       </mat-form-field>
     </div>
+
+    <div class="flex-5 flex-row">
+      <mat-form-field appearance="outline" class="flex-5">
+        <mat-label>Per</mat-label>
+        <mat-select [(value)]="data.per">
+          <mat-option>None</mat-option>
+          <mat-option value="PIECE">Piece</mat-option>
+          <mat-option value="PACKET">Packet</mat-option>
+        </mat-select>
+        <mat-icon matSuffix>reorder</mat-icon>
+      </mat-form-field>
+
+    </div>
   </div>
 
 </div>

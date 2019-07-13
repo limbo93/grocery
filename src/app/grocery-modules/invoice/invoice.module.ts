@@ -9,6 +9,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import { ProductService } from '../../services/product/product.service';
 
 @NgModule({
     imports: [
@@ -22,6 +24,7 @@ import { MatInputModule } from '@angular/material/input';
         MatIconModule,
         MatFormFieldModule,
         MatInputModule,
+        MatSelectModule,
         CommonModule,
         FormsModule,
     ],
@@ -29,7 +32,8 @@ import { MatInputModule } from '@angular/material/input';
         InvoiceComponent
     ],
     providers: [
-        AmountInWordsService
+        AmountInWordsService,
+        ProductService
     ]
 })
 export class InvoiceModule { }

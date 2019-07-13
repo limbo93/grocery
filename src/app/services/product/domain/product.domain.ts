@@ -8,4 +8,5 @@ export class Product extends BaseDomain {
     buyingPrice: number;
     sellingPrice: number;
     quantity: number;
+    per: string;
 }

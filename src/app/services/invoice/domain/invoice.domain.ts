@@ -5,6 +5,7 @@ export class Invoice extends BaseDomain {
     productId: number;
     quantity: number;
     rate: number;
+    per:string;
     discountRate: number;
     amount: number;
     sellerId: number;

@@ -4,17 +4,22 @@ import * as jsPDF from 'jspdf'
 import 'jspdf-autotable';
 import { AmountInWordsService } from '../../services/amount-in-words/amount-in-words.service';
 import { Invoice } from '../../services/invoice/domain/invoice.domain';
+import { ProductService } from '../../services/product/product.service';
+import { BaseComponent } from '../../shared/components/base.component';
+import { Product } from '../../services/product/domain/product.domain';
+
 
 @Component({
     selector: 'invoice',
     templateUrl: './invoice.component.html',
     styleUrls: ['./invoice.component.scss']
 })
-export class InvoiceComponent implements OnInit {
+export class InvoiceComponent extends BaseComponent implements OnInit {
 
     doc: jsPDF = new jsPDF();
     invoiceId: number = +new Date();
     todayDate: string = '';
+    products: Product[] = [];
 
     configuration = {
         shopName: 'Rising Agro BD',
@@ -26,7 +31,9 @@ export class InvoiceComponent implements OnInit {
 
     invoices: Invoice[] = [];
 
-    constructor(private amountInWordsService: AmountInWordsService) {
+    constructor(private amountInWordsService: AmountInWordsService,
+        private productService: ProductService) {
+        super();
         this.invoices.push(new Invoice());
         this.invoices.push(new Invoice());
         this.invoices.push(new Invoice());
@@ -34,6 +41,7 @@ export class InvoiceComponent implements OnInit {
 
     ngOnInit(): void {
         this.todayDate = this.getToday();
+        this.fetchProducts();
     }
 
     getToday() {
@@ -77,7 +85,25 @@ export class InvoiceComponent implements OnInit {
         this.doc.save(pdfName);
     }
 
-    add(){
+    add() {
         this.invoices.push(new Invoice());
+    }
+
+    setReadOnlyData(product: Product, index: number) {
+        this.invoices[index].rate = product.sellingPrice || null;
+        this.invoices[index].per = product.per || null;
+    }
+
+    getAmount(index: number) {
+        if (this.invoices[index].rate && this.invoices[index].quantity) {
+            return this.invoices[index].amount = this.invoices[index].rate * this.invoices[index].quantity;
+        }
+        return null;
+    }
+
+    private fetchProducts() {
+        this.subscribers.fetchProductsSub = this.productService.fetchProducts().valueChanges().subscribe((response: Product[]) => {
+            this.products = response;
+        });
     }
 }

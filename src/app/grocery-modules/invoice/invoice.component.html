@@ -23,14 +23,19 @@
                 <th>Quantity/Unit</th>
                 <th>Rate</th>
                 <th>Per</th>
-                <th>Discount rate</th>
+                <th>Discount rate(%)</th>
                 <th>Amount</th>
             </tr>
             <tr *ngFor="let invoice of invoices; let i = index;">
                 <td>{{ i+1 }}</td>
                 <td>
-                    <mat-form-field appearance="outline">
-                        <input matInput [(ngModel)]="invoice.productId">
+                    <mat-form-field>
+                        <mat-select [(value)]="invoice.productId" #selectedProductId>
+                            <mat-option (click)="setReadOnlyData(null, i)">None</mat-option>
+                            <span *ngFor="let p of products">
+                                <mat-option value="p.id" (click)="setReadOnlyData(p, i)">{{ p.name + ' (' + p.quantity + ')' }}</mat-option>
+                            </span>
+                        </mat-select>
                     </mat-form-field>
                 </td>
                 <td>
@@ -39,9 +44,10 @@
                     </mat-form-field>
                 </td>
                 <td>
-                    <mat-form-field appearance="outline">
-                        <input matInput [(ngModel)]="invoice.rate">
-                    </mat-form-field>
+                    {{ invoice.rate }}
+                </td>
+                <td>
+                    {{ invoice.per }}
                 </td>
                 <td>
                     <mat-form-field appearance="outline">
@@ -49,14 +55,7 @@
                     </mat-form-field>
                 </td>
                 <td>
-                    <mat-form-field appearance="outline">
-                        <input matInput [(ngModel)]="invoice.amount">
-                    </mat-form-field>
-                </td>
-                <td>
-                    <mat-form-field appearance="outline">
-                        <input matInput [(ngModel)]="invoice.sellerId">
-                    </mat-form-field>
+                    {{ getAmount(i) }}
                 </td>
             </tr>
         </table>

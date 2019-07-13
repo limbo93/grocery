@@ -15,7 +15,7 @@ import { ProductService } from '../../services/product/product.service';
 export class ProductComponent extends BaseComponent implements OnInit {
 
   products: MatTableDataSource<{}>;
-  displayedColumns: string[] = ['name', 'buyingPrice', 'sellingPrice', 'quantity', 'edit', 'delete'];
+  displayedColumns: string[] = ['name', 'buyingPrice', 'per', 'sellingPrice', 'quantity', 'edit', 'delete'];
 
 
   constructor(private productService: ProductService,
